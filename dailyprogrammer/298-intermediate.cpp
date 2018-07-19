@@ -1,5 +1,6 @@
 /**
- * PROMPT: find the index in string where the first extra ) or ( parentheses 
+ * PROMPT: 
+ * Find the index in string where the first extra ) or ( parentheses 
  * is, or return the length of string if parentheses are balanced.
  *
  * @author Carson Boden

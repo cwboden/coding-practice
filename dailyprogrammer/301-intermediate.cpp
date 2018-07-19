@@ -1,5 +1,6 @@
 /**
- * PROMPT: You will be given a sequence of letters and you must match with a 
+ * PROMPT: 
+ * You will be given a sequence of letters and you must match with a 
  * dictionary. The sequence is a pattern of letters that you must find.
  *
  * Eg.
@@ -10,6 +11,8 @@
  * @author Carson Boden
  */
 
+#include "../resources/dictionary.h"
+
 #include <algorithm>
 #include <fstream>
 #include <iostream>
@@ -17,13 +20,12 @@
 #include <string>
 #include <vector>
 
-std::vector<std::string> load_dictionary(const std::string& file_name);
 bool pattern_matches(const std::string& format, const std::string& word);
 bool compare_part(const std::string& format, std::string& part);
 
 int main(int argc, char* argv[])
 {
-  std::vector<std::string> words = load_dictionary("../resources/enable1.txt");
+  std::vector<std::string> words = load_dictionary();
 
   for (auto& word : words) {
     if (pattern_matches(argv[1], word)) {
@@ -32,19 +34,6 @@ int main(int argc, char* argv[])
   }
 
   return 0;
-}
-
-std::vector<std::string> load_dictionary(const std::string& file_name)
-{
-  std::vector<std::string> words;
-  std::ifstream file_stream(file_name);
-  std::string line;
-
-  while (getline(file_stream, line)) {
-    words.push_back(line);
-  }
-
-  return words;
 }
 
 bool pattern_matches(const std::string& format, const std::string& word)
