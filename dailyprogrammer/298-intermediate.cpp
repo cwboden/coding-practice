@@ -5,30 +5,35 @@
  * @author Carson Boden
  */
 
-#include <string>
 #include <deque>
+#include <iostream>
+#include <string>
 
 int main(int argc, char* argv[])
 {
   std::string str = argv[1];
-  std::deque<int, int> checker;
+  std::deque<int> checker;
 
-  for (int i = 0; i < str.size(); ++i) {
+  for (int i = 0; i < str.length(); ++i) {
 
     if (str[i] == '(') {
-      checker.push(str[i], i);
+      checker.push_back(i);
     }
     else if (str[i] == ')') {
       if (checker.empty()) {
-        return i;
+        std::cout << i << std::endl;
+        return 0;
       }
 
-      checker.pop();
+      checker.pop_back();
     }
   }
 
-  if (!deque.empty()) {
-    return deque.front()->second;
+  if (!checker.empty()) {
+    std::cout << checker.front() << std::endl;
+  }
+  else {
+    std::cout << str.length() << std::endl;
   }
 
   return 0;
