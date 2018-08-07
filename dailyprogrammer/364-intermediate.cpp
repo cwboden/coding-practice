@@ -35,7 +35,6 @@ int main(int argc, char* argv[])
   std::vector<int> challenge_input_3 = { 10, 12, 41, 62, 31, 50 };
   std::vector<int> challenge_input_4 = { 10, 12, 41, 62, 31 };
 
-  std::cout << "===== STANDARD INPUT =====" << std::endl;
   find_ducci_sequence(standard_input);
 
   return 0;
